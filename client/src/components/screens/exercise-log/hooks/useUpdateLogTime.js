@@ -8,10 +8,12 @@ export const UseUpdateLogTime = (times) => {
 
 	const queryClient = useQueryClient()
 
-	const {completeLog, errorCompleted} = UseCompleteLog()
+	const { completeLog, errorCompleted } = UseCompleteLog()
 
-	const {mutate, error: errorChange} = useMutation(['update log time'],
-		({timeId, body}) => ExerciseLogService.updateTime(timeId, body), {
+	const { mutate, error: errorChange } = useMutation(
+		['update log time'],
+		({ timeId, body }) => ExerciseLogService.updateTime(timeId, body),
+		{
 		onSuccess: () => {
 			queryClient.invalidateQueries(['get exercise log', id]).then(() => {
 				const filteredTimes = times.filter(time => time.isCompleted)
@@ -22,5 +24,5 @@ export const UseUpdateLogTime = (times) => {
 
 		}
 		})
-	return {updateTime: mutate, error: errorChange || errorCompleted}
+	return { updateTime: mutate, error: errorChange || errorCompleted }
 }

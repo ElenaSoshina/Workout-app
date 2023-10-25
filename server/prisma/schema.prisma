@@ -1,3 +1,5 @@
+
+
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -100,4 +102,3 @@ model WorkoutLog {
 
   @@map("Workout_log")
 }
-

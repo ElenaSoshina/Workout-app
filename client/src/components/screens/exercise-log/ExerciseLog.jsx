@@ -10,11 +10,14 @@ import TableRow from './table/TableRow'
 import ExerciseError from './ExerciseError.jsx'
 
 const ExerciseLog = () => {
-	const { exerciseLog, isLoading, isSuccess, error, onChangeState, getState, toggleTime } = useExerciseLog()
-
-
-
-
+	const {
+		exerciseLog,
+		isLoading,
+		isSuccess,
+		error,
+		onChangeState,
+		getState,
+		toggleTime } = useExerciseLog()
 
 	return (
 		<>
@@ -23,18 +26,19 @@ const ExerciseLog = () => {
 				className='wrapper-inner-page'
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
-				{<ExerciseError errors={[error]} />}
+				<ExerciseError errors={[error]} />
 				{isLoading ? (
 					<Loader />
 				) : (
 					<div className={styles.wrapper}>
 						<TableHeader />
-						{exerciseLog?.times.map((item) => (
-							<TableRow getState = {getState}
-												onChangeState={onChangeState}
-												toggleTime={toggleTime}
-												item={item}
-												key={item.id} />
+						{exerciseLog?.times.map(item => (
+							<TableRow
+								getState = {getState}
+								onChangeState={onChangeState}
+								toggleTime={toggleTime}
+								item={item}
+								key={item.id} />
 						))}
 					</div>
 				)}
