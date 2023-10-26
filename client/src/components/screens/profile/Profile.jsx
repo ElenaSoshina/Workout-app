@@ -45,19 +45,30 @@ const Profile = () => {
 				style={{ paddingLeft: 0, paddingRight: 0 }}
 			>
 				<div className={styles.before_after}>
-					{data?.images?.map((image, index) => (
-						<div key={image}>
+						<div>
 							<div className={styles.heading}>
-								{index === 1 ? 'After' : 'Before'}
+								Before
 							</div>
 							<img
-								src={image}
+								src= '/images/before.jpg'
 								alt=''
 								draggable={false}
 								style={{ borderRadius: 14 }}
 							/>
 						</div>
-					))}
+
+					<div>
+						<div className={styles.heading}>
+							After
+						</div>
+						<img
+							src= '/images/after.jpg'
+							alt=''
+							draggable={false}
+							style={{ borderRadius: 14 }}
+						/>
+					</div>
+
 				</div>
 			</div>
 		</>
